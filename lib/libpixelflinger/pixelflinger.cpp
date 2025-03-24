@@ -93,6 +93,11 @@ void ggl_error(context_t* c, GGLenum error)
 static void ggl_bindTexture(void* con, const GGLSurface* surface)
 {
     GGL_CONTEXT(c, con);
+    if (!surface) {
+        LOGW("Cannot get surface!\n");
+        LOGE("Failed to bind surface.\n");
+        return;
+    }
     if (surface->format != c->activeTMU->surface.format)
         ggl_state_changed(c, GGL_TMU_STATE);    
     ggl_set_surface(c, &(c->activeTMU->surface), surface);
