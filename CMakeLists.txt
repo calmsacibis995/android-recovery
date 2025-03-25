@@ -1,12 +1,9 @@
-cmake_minimum_required(VERSION 3.13.2)
-project(recovery VERSION 3.0 DESCRIPTION "Android Recovery")
+cmake_minimum_required(VERSION 3.8.2)
+project(recovery VERSION 3.0)
 
 #--------------------------------------------------------------
 # Options
 #
-cmake_policy(SET CMP0077 NEW)
-set(CMAKE_POLICY_DEFAULT_CMP0077 NEW)
-cmake_policy(SET CMP0077 NEW)
 set(CMAKE_MACOSX_RPATH ON)
 
 # use, i.e. don't skip the full RPATH for the build tree
@@ -39,14 +36,14 @@ find_package(ZLIB REQUIRED)				# zlib
 set(PNG_SHARED ON CACHE BOOL "" FORCE)
 set(PNG_STATIC OFF CACHE BOOL "" FORCE)
 set(PNG_EXECUTABLES OFF CACHE BOOL "" FORCE)	# we only want lib
-set(PNG_TESTS OFF CACHE BOOL "" FORCE)			# we only want lib
+set(PNG_TESTS OFF CACHE BOOL "" FORCE)		# we only want lib
 set(SKIP_INSTALL_ALL OFF CACHE BOOL "" FORCE)	# we only want lib
 
 #--------------------------------------------------------------
 # Build flags.
 #
 if(NOT CMAKE_BUILD_TYPE)
-    set(CMAKE_BUILD_TYPE Debug)
+	set(CMAKE_BUILD_TYPE Debug)
 endif()
 
 #--------------------------------------------------------------
